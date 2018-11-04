@@ -198,8 +198,8 @@ clone_brickpi3() {
 
   sudo rm -rf $BRICKPI3_DIR
   # MT for testing temporarily use mattallen37 repo for cloning.
-  #git clone --quiet --depth=1 -b $selectedbranch https://github.com/DexterInd/BrickPi3.git
-  git clone --quiet --depth=1 -b $selectedbranch https://github.com/sneglen/ownBrickPi3.git
+  git clone --quiet --depth=1 -b $selectedbranch https://github.com/DexterInd/BrickPi3.git
+  #git clone --quiet --depth=1 -b $selectedbranch https://github.com/sneglen/ownBrickPi3.git
   cd $BRICKPI3_DIR
   echo "Done cloning ownBrickPi3 repository"
 }
