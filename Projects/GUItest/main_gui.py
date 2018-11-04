@@ -14,16 +14,15 @@ class Gui_test:
 
 	def getBrickInfo(self):
 		print("Manufacturer:", self.BP.get_manufacturer())
-
-	print("Board:       ", BP.get_board())
-	print("HW version:  ", BP.get_version_hardware())
-	print("FW version:  ", BP.get_version_firmware())
-	print("ID:          ", BP.get_id())
-	print("Voltage 3v3: ", BP.get_voltage_3v3())
-	print("Voltage 5V:  ", BP.get_voltage_5v())
-	print("Voltage 9V:  ", BP.get_voltage_9v())
-	print("Voltage bat: ", BP.get_voltage_battery())
-	print("RP3:    ", os.popen("vcgencmd measure_temp").readline(), "\n")
+		print("Board:       ", self.BP.get_board())
+		print("HW version:  ", self.BP.get_version_hardware())
+		print("FW version:  ", self.BP.get_version_firmware())
+		print("ID:          ", self.BP.get_id())
+		print("Voltage 3v3: ", self.BP.get_voltage_3v3())
+		print("Voltage 5V:  ", BP.get_voltage_5v())
+		print("Voltage 9V:  ", self.BP.get_voltage_9v())
+		print("Voltage bat: ", self.BP.get_voltage_battery())
+		print("RP3:    ", os.popen("vcgencmd measure_temp").readline(), "\n")
 
 	def exitProgram(self):
 		print("Button: Exit")
