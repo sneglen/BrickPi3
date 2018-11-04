@@ -27,14 +27,17 @@ class Gui_test:
 			print("RP3:    ", os.popen("vcgencmd measure_temp").readline())
 
 		except:
-			print("Error caught in <get_brick_info()>")
+			print("Exception caught in <get_brick_info()>")
 
 
 	def exit_program(self):
-		print("Button: Exit")
-		self.gui.quit()
-		self.BP.set_led(0)  # set the LED brightness (0 to 100)
-		self.BP.reset_all()  # Unconfigure the sensors, disable the motors, and restore the LED control
+		try:
+			self.BP.reset_all()  # Unconfigure the sensors, disable the motors, and restore the LED control
+			self.gui.quit()
+
+		except:
+			print("Exception caught in <exit_program()>")
+
 
 	def quit(self):
 		print("Button: quit")
