@@ -290,8 +290,9 @@ check_if_run_with_pi
 
 parse_cmdline_arguments "$@"
 install_rfrtools_repo
-
+echo "before cloning"
 clone_brickpi3
+echo "after cloning"
 install_python_pkgs_and_dependencies
 
 exit 0
