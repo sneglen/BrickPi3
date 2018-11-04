@@ -1,5 +1,7 @@
 #! /bin/bash
 
+echo "Hello World:begin"
+
 PIHOME=/home/pi
 DEXTER=Dexter
 DEXTER_PATH=$PIHOME/$DEXTER
@@ -182,7 +184,7 @@ install_rfrtools_repo() {
 
 # called way down bellow
 clone_brickpi3() {
-
+  echo "Hello World:cloning"
   echo "Cloning BrickPi3 repository"
 
   # create folders recursively if they don't exist already
@@ -294,5 +296,5 @@ install_rfrtools_repo
 
 clone_brickpi3
 install_python_pkgs_and_dependencies
-
+echo "Hello World:end"
 exit 0
