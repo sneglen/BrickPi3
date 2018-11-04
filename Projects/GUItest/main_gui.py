@@ -10,9 +10,10 @@ class Gui_test:
 		self.BP = brickpi3.BrickPi3()  # Create an instance of the BrickPi3 class. BP will be the BrickPi3 object.
 		self.gui = tkinter.Tk()  # Create GUI instance
 		self.file_name = os.path.basename(__file__)
-		self.composeGUI()
+		self.compose_GUI()
 
-	def getBrickInfo(self):
+
+	def get_brick_info(self):
 		try:
 			print("Manufacturer:", self.BP.get_manufacturer())
 			print("Board:       ", self.BP.get_board())
@@ -23,41 +24,41 @@ class Gui_test:
 			print("Voltage 5V:  ", self.BP.get_voltage_5v())
 			print("Voltage 9V:  ", self.BP.get_voltage_9v())
 			print("Voltage bat: ", self.BP.get_voltage_battery())
-			print("RP3:    ", os.popen("vcgencmd measure_temp").readline(), "\n")
+			print("RP3:    ", os.popen("vcgencmd measure_temp").readline())
+
 		except:
-			print("Error caught in <getBrickInfo()>")
+			print("Error caught in <get_brick_info()>")
 
 
-	def exitProgram(self):
+	def exit_program(self):
 		print("Button: Exit")
 		self.gui.quit()
 		self.BP.set_led(0)  # set the LED brightness (0 to 100)
 		self.BP.reset_all()  # Unconfigure the sensors, disable the motors, and restore the LED control
 
-	##def quit(self):
-	##    print("Button: quit")
-	##    self.root.destroy()
-	##
-	##
-	##def throttleLED(throttle):
-	##    BP.set_led(int(throttle))
+	def quit(self):
+		print("Button: quit")
+		self.root.destroy()
 
-	def composeGUI(self):
+	def throttle_LED(self, throttle):
+		self.BP.set_led(int(throttle))
+
+	def compose_GUI(self):
 		self.gui.title("BrickPi3 - LEGO")
 		self.gui.geometry('400x200')
 		self.gui.resizable(False, False)
 
-		self.exitButton = tkinter.Button(self.gui, text="Exit", command=self.exitProgram, height=2, width=6)
-		self.exitButton.pack(side='right')
+		self.exit_button = tkinter.Button(self.gui, text = "Exit", command = self.exit_program, height = 2, width = 6)
+		self.exit_button.pack(side='right')
 
-		self.infoButton = tkinter.Button(self.gui, text="Info", command=self.getBrickInfo, height=2, width=8)
-		self.infoButton.pack(side='left')
+		self.info_button = tkinter.Button(self.gui, text = "Info", command = self.get_brick_info, height = 2, width = 8)
+		self.info_button.pack(side='left')
 
-		##    scaleButton = tkinter.Scale(gui, command = throttleLED, orient = 'horizontal')
-		##    scaleButton.pack(side = 'bottom')
+		self.scale_button = tkinter.Scale(self.gui, command = self.throttle_LED, orient = 'horizontal')
+		self.scale_button.pack(side = 'bottom')
 
 		self.gui.mainloop()
 
 
 if __name__ == '__main__':
-	gui_instante = Gui_test()
+	gui_instance = Gui_test()
