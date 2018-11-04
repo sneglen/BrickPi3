@@ -182,7 +182,7 @@ install_rfrtools_repo() {
 
 # called way down bellow
 clone_brickpi3() {
-  echo "Cloning ownBrickPi3 repository"
+  echo "Cloning BrickPi3 repository"
 
   # create folders recursively if they don't exist already
   # we use sudo for creating the dir(s) because on older versions of R4R
@@ -201,7 +201,7 @@ clone_brickpi3() {
   #git clone --quiet --depth=1 -b $selectedbranch https://github.com/DexterInd/BrickPi3.git
   git clone --quiet --depth=1 -b $selectedbranch https://github.com/sneglen/BrickPi3.git
   cd $BRICKPI3_DIR
-  echo "Done cloning ownBrickPi3 repository"
+  echo "Done cloning BrickPi3 repository"
 }
 
 ################################################
@@ -290,9 +290,7 @@ check_if_run_with_pi
 
 parse_cmdline_arguments "$@"
 install_rfrtools_repo
-echo "before cloning"
 clone_brickpi3
-echo "after cloning"
 install_python_pkgs_and_dependencies
 
 exit 0
