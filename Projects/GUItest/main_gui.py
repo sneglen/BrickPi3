@@ -40,7 +40,7 @@ class Gui_test:
 	##    BP.set_led(int(throttle))
 
 	def composeGUI(self):
-		self.gui.title("BrickPi3 - control")
+		self.gui.title("BrickPi3 - LEGO")
 		self.gui.geometry('400x200')
 		self.gui.resizable(False, False)
 
