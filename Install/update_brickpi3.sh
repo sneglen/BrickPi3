@@ -1,9 +1,7 @@
 #! /bin/bash
 
-echo "update_brickpi3: START"
-
 PIHOME=/home/pi
-DEXTER=DexterNew
+DEXTER=Dexter
 DEXTER_PATH=$PIHOME/$DEXTER
 RASPBIAN=$PIHOME/di_update/Raspbian_For_Robots
 BRICKPI3_DIR=$DEXTER_PATH/BrickPi3
@@ -184,8 +182,7 @@ install_rfrtools_repo() {
 
 # called way down bellow
 clone_brickpi3() {
-  echo "Hello World:cloning"
-  echo "Cloning BrickPi3 repository"
+  echo "Cloning ownBrickPi3 repository"
 
   # create folders recursively if they don't exist already
   # we use sudo for creating the dir(s) because on older versions of R4R
@@ -202,9 +199,9 @@ clone_brickpi3() {
   sudo rm -rf $BRICKPI3_DIR
   # MT for testing temporarily use mattallen37 repo for cloning.
   #git clone --quiet --depth=1 -b $selectedbranch https://github.com/DexterInd/BrickPi3.git
-  git clone --quiet --depth=1 -b $selectedbranch https://github.com/DexterInd/BrickPi3.git
+  git clone --quiet --depth=1 -b $selectedbranch https://github.com/sneglen/ownBrickPi3.git
   cd $BRICKPI3_DIR
-  echo "Done cloning BrickPi3 repository"
+  echo "Done cloning ownBrickPi3 repository"
 }
 
 ################################################
@@ -296,5 +293,5 @@ install_rfrtools_repo
 
 clone_brickpi3
 install_python_pkgs_and_dependencies
-echo "update_brickpi3: END"
+
 exit 0
