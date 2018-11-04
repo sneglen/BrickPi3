@@ -1,9 +1,9 @@
 #! /bin/bash
 
-echo "Hello World:begin"
+echo "update_brickpi3: START"
 
 PIHOME=/home/pi
-DEXTER=Dexter
+DEXTER=DexterNew
 DEXTER_PATH=$PIHOME/$DEXTER
 RASPBIAN=$PIHOME/di_update/Raspbian_For_Robots
 BRICKPI3_DIR=$DEXTER_PATH/BrickPi3
@@ -265,7 +265,7 @@ install_python_pkgs_and_dependencies() {
   fi
 
   feedback "Removing \"$REPO_PACKAGE\" to make space for the new one"
-  remove_python_packages "$REPO_PACKAGE"
+  remove_python_packages "$ "
 
   # installing the package itself
   pushd $BRICKPI3_DIR/Software/Python > /dev/null
@@ -296,5 +296,5 @@ install_rfrtools_repo
 
 clone_brickpi3
 install_python_pkgs_and_dependencies
-echo "Hello World:end"
+echo "update_brickpi3: END"
 exit 0
